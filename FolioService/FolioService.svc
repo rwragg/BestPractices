@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="FolioService.FolioService" CodeBehind="FolioService.svc.cs" %>
