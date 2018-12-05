@@ -35,12 +35,12 @@ namespace FolioLibrary.Data
             throw new NotImplementedException();
         }
 
-        public FolioDTO Read(Int32 folio, int broker)
+        public FolioDTO Read(Int32 _folio, int _broker)
         {
             //parameters for the stored procedure call
-            var items = new { Folio = folio, Broker = broker };
+            var items = new { folio = _folio, broker = _broker };
 
-            AseDBAccess dbAccessor = new AseDBAccess();
+            PGDBAccess dbAccessor = new PGDBAccess();
 
             FolioDTO d = dbAccessor.ExecuteScalar(SP_READ, this, items);
             return d;

@@ -42,6 +42,9 @@
     <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
     </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\..\..\..\Program Files (x86)\PostgreSQL\Npgsql\bin\net451\Npgsql.dll</HintPath>
+    </Reference>
     <Reference Include="Sybase.AdoNet4.AseClient">
       <HintPath>..\libraries\sybase\Sybase.AdoNet4.AseClient.dll</HintPath>
     </Reference>
@@ -62,6 +65,7 @@
     <Compile Include="Utility\AseDBAccess.cs" />
     <Compile Include="Utility\IDataAccess.cs" />
     <Compile Include="Utility\IDTO.cs" />
+    <Compile Include="Utility\PGDBAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
