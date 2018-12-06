@@ -61,6 +61,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Connected Services\FolioService\FolioConsoleUI.FolioService.FolioDTO.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\FolioService\FolioService.wsdl" />
     <None Include="Connected Services\FolioService\FolioService.xsd">
       <SubType>Designer</SubType>
@@ -73,12 +76,6 @@
     </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\FolioLibrary.Data.FolioDTO.datasource" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\FolioLibrary\FolioLibrary.csproj">
-      <Project>{55c4b777-8f85-4b6d-ad07-80a36e819c24}</Project>
-      <Name>FolioLibrary</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

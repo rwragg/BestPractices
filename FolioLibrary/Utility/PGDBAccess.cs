@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Data;
 
-using FolioLibrary.Data;
-
 using Npgsql;
 using Dapper;
 
@@ -61,7 +59,7 @@ namespace FolioLibrary.Utility
         /// <param name="spName"></param>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public T ExecuteScalar<T>(String spName, T dto, Object items)
+        public T ExecuteSP<T>(String spName, T dto, Object items)
         {
             this.CreateOpenConnection();
 

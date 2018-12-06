@@ -25,28 +25,28 @@ namespace FolioLibrary.Data
         [DataMember]
         public String Status { get; set; }
 
-        public void Create()
+        internal void Create()
         {
             throw new NotImplementedException();
         }
 
-        public void Delete()
+        internal void Delete()
         {
             throw new NotImplementedException();
         }
 
-        public FolioDTO Read(Int32 _folio, int _broker)
+        internal FolioDTO Read(Int32 _folio, int _broker)
         {
             //parameters for the stored procedure call
-            var items = new { folio = _folio, broker = _broker };
+            var items = new { Folio = _folio, Broker = _broker };
 
             PGDBAccess dbAccessor = new PGDBAccess();
+            FolioDTO d = dbAccessor.ExecuteSP(SP_READ, this, items);
 
-            FolioDTO d = dbAccessor.ExecuteScalar(SP_READ, this, items);
             return d;
         }
 
-        public void Update()
+        internal void Update()
         {
             throw new NotImplementedException();
         }

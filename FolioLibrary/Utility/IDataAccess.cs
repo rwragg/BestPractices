@@ -10,6 +10,6 @@ namespace FolioLibrary.Utility
 {
     interface IDataAccess
     {
-        T ExecuteScalar<T>(String spName, T dto, Object items);
+        T ExecuteSP<T>(String spName, T dto, Object items);
     }
 }

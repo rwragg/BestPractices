@@ -6,6 +6,7 @@ using System.ServiceModel;
 using System.Text;
 
 using FolioLibrary.Data;
+using FolioLibrary.Business;
 
 namespace FolioService
 {
@@ -13,10 +14,8 @@ namespace FolioService
     {
         FolioDTO IFolioService.GetFolioStatus(Int32 folio, int broker)
         {
-            FolioDTO fd = new FolioDTO();
-            fd = fd.Read(5191156, 78511);
-
-            return fd;
+            Folio f = new Folio();
+            return f.Read(folio, broker);
         }
     }
 }

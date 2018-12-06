@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 using System.Configuration;
 using System.Data;
 
-using FolioLibrary.Data;
-
 using Dapper;
 using Sybase.Data.AseClient;
 
@@ -19,7 +17,8 @@ namespace FolioLibrary.Utility
         private AseConnection _conn = null;
 
         private static readonly log4net.ILog log =
-           log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+           log4net.LogManager.GetLogger(
+               System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private void CreateOpenConnection()
         {
@@ -61,7 +60,7 @@ namespace FolioLibrary.Utility
         /// <param name="spName"></param>
         /// <param name="dto"></param>
         /// <returns></returns>
-        public T ExecuteScalar<T>(String spName, T dto, Object items)
+        public T ExecuteSP<T>(String spName, T dto, Object items)
         {
             this.CreateOpenConnection();
 

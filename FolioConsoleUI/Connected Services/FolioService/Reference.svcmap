@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="155f7d1f-d954-4dca-b911-9ace63433673" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="bb305e3d-e256-4441-b174-4999b85f9ff1" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
@@ -22,11 +22,11 @@
     <MetadataSource Address="http://localhost:61118/FolioService.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="FolioService.xsd" MetadataType="Schema" ID="564b1920-58b5-450f-9a80-e9933de5bcc2" SourceId="1" SourceUrl="http://localhost:61118/FolioService.svc?xsd=xsd0" />
-    <MetadataFile FileName="FolioService1.xsd" MetadataType="Schema" ID="97c819d8-89d6-4ae4-9401-1019e4c82c58" SourceId="1" SourceUrl="http://localhost:61118/FolioService.svc?xsd=xsd2" />
-    <MetadataFile FileName="FolioService.disco" MetadataType="Disco" ID="df9f18cc-169c-4e66-93bd-676f6843bfb9" SourceId="1" SourceUrl="http://localhost:61118/FolioService.svc?disco" />
-    <MetadataFile FileName="FolioService2.xsd" MetadataType="Schema" ID="d4d24c1d-dfa4-4cf4-85e6-567bb92d03f5" SourceId="1" SourceUrl="http://localhost:61118/FolioService.svc?xsd=xsd1" />
-    <MetadataFile FileName="FolioService.wsdl" MetadataType="Wsdl" ID="2af7cb17-3fdb-4597-840d-3eed6d27962b" SourceId="1" SourceUrl="http://localhost:61118/FolioService.svc?wsdl" />
+    <MetadataFile FileName="FolioService.xsd" MetadataType="Schema" ID="32c722b5-9b42-4b9c-98db-7808c990a62f" SourceId="1" SourceUrl="http://localhost:61118/FolioService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FolioService1.xsd" MetadataType="Schema" ID="b845524f-da52-4931-8837-6a8e34b4ae5d" SourceId="1" SourceUrl="http://localhost:61118/FolioService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FolioService.disco" MetadataType="Disco" ID="ac3c8463-8f9e-4c47-a519-c1137d3598af" SourceId="1" SourceUrl="http://localhost:61118/FolioService.svc?disco" />
+    <MetadataFile FileName="FolioService2.xsd" MetadataType="Schema" ID="31eaa293-6f8b-404d-8e2c-9c902632185f" SourceId="1" SourceUrl="http://localhost:61118/FolioService.svc?xsd=xsd1" />
+    <MetadataFile FileName="FolioService.wsdl" MetadataType="Wsdl" ID="b683de9b-b12b-4d92-ab3c-a40cdec3b5c1" SourceId="1" SourceUrl="http://localhost:61118/FolioService.svc?wsdl" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

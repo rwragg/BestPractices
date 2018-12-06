@@ -9,17 +9,64 @@
 //------------------------------------------------------------------------------
 
 namespace FolioConsoleUI.FolioService {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="FolioDTO", Namespace="http://schemas.datacontract.org/2004/07/FolioLibrary.Data")]
+    [System.SerializableAttribute()]
+    public partial class FolioDTO : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string StatusField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Status {
+            get {
+                return this.StatusField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
+                    this.StatusField = value;
+                    this.RaisePropertyChanged("Status");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FolioService.IFolioService")]
     public interface IFolioService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFolioService/GetFolioStatus", ReplyAction="http://tempuri.org/IFolioService/GetFolioStatusResponse")]
-        FolioLibrary.Data.FolioDTO GetFolioStatus(int folio, int broker);
+        FolioConsoleUI.FolioService.FolioDTO GetFolioStatus(int folio, int broker);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFolioService/GetFolioStatus", ReplyAction="http://tempuri.org/IFolioService/GetFolioStatusResponse")]
-        System.Threading.Tasks.Task<FolioLibrary.Data.FolioDTO> GetFolioStatusAsync(int folio, int broker);
+        System.Threading.Tasks.Task<FolioConsoleUI.FolioService.FolioDTO> GetFolioStatusAsync(int folio, int broker);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -49,11 +96,11 @@ namespace FolioConsoleUI.FolioService {
                 base(binding, remoteAddress) {
         }
         
-        public FolioLibrary.Data.FolioDTO GetFolioStatus(int folio, int broker) {
+        public FolioConsoleUI.FolioService.FolioDTO GetFolioStatus(int folio, int broker) {
             return base.Channel.GetFolioStatus(folio, broker);
         }
         
-        public System.Threading.Tasks.Task<FolioLibrary.Data.FolioDTO> GetFolioStatusAsync(int folio, int broker) {
+        public System.Threading.Tasks.Task<FolioConsoleUI.FolioService.FolioDTO> GetFolioStatusAsync(int folio, int broker) {
             return base.Channel.GetFolioStatusAsync(folio, broker);
         }
     }

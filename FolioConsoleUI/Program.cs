@@ -4,8 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-using FolioLibrary.Data;
-
 [assembly: log4net.Config.XmlConfigurator(Watch=true)]
 
 namespace FolioConsoleUI
@@ -17,9 +15,9 @@ namespace FolioConsoleUI
         
         static void Main(string[] args)
         {
-            FolioService.FolioServiceClient fs = new FolioService.FolioServiceClient();
-            FolioDTO fd = fs.GetFolioStatus(5191156, 78511);
-            
+            var fs = new FolioService.FolioServiceClient();
+            var fd = fs.GetFolioStatus(5191156, 78511);
+
             Console.WriteLine(fd.Status);
             Console.ReadLine();
         }
