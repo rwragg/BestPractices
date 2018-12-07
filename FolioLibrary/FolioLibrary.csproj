@@ -69,7 +69,6 @@
     <Compile Include="Utility\Connection\IConnection.cs" />
     <Compile Include="Utility\Connection\NPGSQLConnection.cs" />
     <Compile Include="Utility\IDataAccess.cs" />
-    <Compile Include="Utility\IDTO.cs" />
     <Compile Include="Utility\DBAccess.cs" />
   </ItemGroup>
   <ItemGroup>

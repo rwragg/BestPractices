@@ -19,7 +19,7 @@ namespace FolioLibrary.Data
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        private const string SP_READ = "sp_Folio_Status";
+        private const string SP_READ = "sp_folio_status";
 
         //Public property for the object
         //Utilized by NuGet: Dapper
@@ -39,10 +39,10 @@ namespace FolioLibrary.Data
             throw new NotImplementedException();
         }
 
-        internal FolioDTO Read(Int32 _folio, int _broker)
+        internal FolioDTO Read(Int32 _folio, Int32 _broker)
         {
             //parameters for the stored procedure call
-            var items = new { Folio = _folio, TBroker = _broker };
+            var items = new { Folio = _folio, Broker = _broker };
 
             DBAccess dbAccessor = new DBAccess();
 

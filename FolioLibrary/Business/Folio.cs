@@ -9,7 +9,7 @@ using FolioLibrary.Utility;
 
 namespace FolioLibrary.Business
 {
-    public class Folio : IDTO
+    public class Folio
     {
         public void Create()
         {

@@ -18,7 +18,7 @@ namespace FolioConsoleUI
             var fs = new FolioService.FolioServiceClient();
             var fd = fs.GetFolioStatus(5191156, 78511);
 
-            Console.WriteLine(fd.Status);
+            Console.WriteLine(fd.Status + " " + fd.Phase);
             Console.ReadLine();
         }
     }

@@ -52,6 +52,7 @@ namespace FolioLibrary.Utility
             {
                 using (_connection.Connection)
                 {
+                    //dapper
                     dto = _connection.Connection.QueryFirstOrDefault<T>(spName,
                         items,
                         commandType: CommandType.StoredProcedure);
