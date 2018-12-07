@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Data;
 using Sybase.Data.AseClient;
 
 using FolioLibrary.Utility;
-using System.Runtime.Serialization;
+using FolioLibrary.Utility.Connection;
 
 namespace FolioLibrary.Data
 {
@@ -25,6 +26,9 @@ namespace FolioLibrary.Data
         [DataMember]
         public String Status { get; set; }
 
+        [DataMember]
+        public String Phase { get; set; }
+
         internal void Create()
         {
             throw new NotImplementedException();
@@ -38,11 +42,14 @@ namespace FolioLibrary.Data
         internal FolioDTO Read(Int32 _folio, int _broker)
         {
             //parameters for the stored procedure call
-            var items = new { Folio = _folio, Broker = _broker };
+            var items = new { Folio = _folio, TBroker = _broker };
 
-            PGDBAccess dbAccessor = new PGDBAccess();
+            DBAccess dbAccessor = new DBAccess();
+
+            //set the connection type
+            dbAccessor.Connection = new ASESQLConnection();
+
             FolioDTO d = dbAccessor.ExecuteSP(SP_READ, this, items);
-
             return d;
         }
 

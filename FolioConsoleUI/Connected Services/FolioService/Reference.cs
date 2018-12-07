@@ -23,6 +23,9 @@ namespace FolioConsoleUI.FolioService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string PhaseField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string StatusField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
@@ -32,6 +35,19 @@ namespace FolioConsoleUI.FolioService {
             }
             set {
                 this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Phase {
+            get {
+                return this.PhaseField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.PhaseField, value) != true)) {
+                    this.PhaseField = value;
+                    this.RaisePropertyChanged("Phase");
+                }
             }
         }
         
