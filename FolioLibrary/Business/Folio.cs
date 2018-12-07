@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using Autofac;
+
 using FolioLibrary.Data;
 using FolioLibrary.Utility;
 
@@ -23,6 +25,12 @@ namespace FolioLibrary.Business
 
         public FolioDTO Read(int folio, int broker)
         {
+            //using (var scope = Container.BeginLifetimeScope())
+            //{
+            //    var writer = scope.Resolve<IDateWriter>();
+            //    writer.WriteDate();
+            //}
+
             FolioDTO fd = new FolioDTO();
             fd = fd.Read(5191156, 78511);
 

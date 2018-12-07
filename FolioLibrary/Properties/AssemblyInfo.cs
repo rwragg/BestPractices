@@ -21,7 +21,7 @@ using System.Runtime.InteropServices;
 
 // Setting visibility to testing framework
 [assembly: InternalsVisibleTo("FolioLibraryTest")]
-[assembly: InternalsVisibleTo("FolioConsoleUI")]
+[assembly: InternalsVisibleTo("FolioService")]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
 [assembly: Guid("55c4b777-8f85-4b6d-ad07-80a36e819c24")]
