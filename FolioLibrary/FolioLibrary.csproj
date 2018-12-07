@@ -65,6 +65,7 @@
     <Compile Include="Business\Folio.cs" />
     <Compile Include="Data\FolioDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\Configuration\Configuration.cs" />
     <Compile Include="Utility\Connection\ASESQLConnection.cs" />
     <Compile Include="Utility\Connection\IConnection.cs" />
     <Compile Include="Utility\Connection\NPGSQLConnection.cs" />

@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data;
 
-using Sybase.Data.AseClient;
+using Autofac;
 
 using FolioLibrary.Utility;
 using FolioLibrary.Utility.Connection;
+using FolioLibrary.Utility.Configuration;
 
 namespace FolioLibrary.Data
 {
@@ -21,7 +22,8 @@ namespace FolioLibrary.Data
 
         private const string SP_READ = "sp_folio_status";
 
-        //Public property for the object
+        private IContainer Container = new Configuration().Container;
+
         //Utilized by NuGet: Dapper
         [DataMember]
         public String Status { get; set; }
@@ -46,8 +48,10 @@ namespace FolioLibrary.Data
 
             DBAccess dbAccessor = new DBAccess();
 
-            //set the connection type
-            dbAccessor.Connection = new ASESQLConnection();
+            using (var scope = Container.BeginLifetimeScope())
+            {
+                dbAccessor.Connection = scope.Resolve<IConnection>();
+            }
 
             FolioDTO d = dbAccessor.ExecuteSP(SP_READ, this, items);
             return d;

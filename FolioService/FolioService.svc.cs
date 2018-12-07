@@ -5,11 +5,9 @@ using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
 
-using Autofac;
-
 using FolioLibrary.Data;
 using FolioLibrary.Business;
-using FolioLibrary.Utility.Connection;
+using FolioLibrary.Utility.Configuration;
 
 namespace FolioService
 {
@@ -22,10 +20,7 @@ namespace FolioService
 
         static FolioService()
         {
-            var builder = new ContainerBuilder();
-            builder.RegisterType<ASESQLConnection>().As<IConnection>();
-
-            var container = builder.Build();
+            Configuration config = new Configuration();
         }
 
         FolioDTO IFolioService.GetFolioStatus(Int32 folio, int broker)
