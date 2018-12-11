@@ -13,16 +13,6 @@ namespace FolioService
 {
     public class FolioService : IFolioService
     {
-        public FolioService()
-        {
-
-        }
-
-        static FolioService()
-        {
-            Configuration config = new Configuration();
-        }
-
         FolioDTO IFolioService.GetFolioStatus(Int32 folio, int broker)
         {
             Folio f = new Folio();

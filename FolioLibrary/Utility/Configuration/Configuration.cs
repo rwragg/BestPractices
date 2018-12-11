@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Configuration;
 
 using Autofac;
 
@@ -14,17 +15,33 @@ namespace FolioLibrary.Utility.Configuration
     {
         static ContainerBuilder builder;
 
-        static IContainer container;
-        public IContainer Container
+        private static IContainer container;
+        internal IContainer Container
         {
-            get { return container; }
+            get
+            {
+                return container;
+            }
         }
 
         static Configuration()
         {
             builder = new ContainerBuilder();
 
-            builder.RegisterType<ASESQLConnection>().As<IConnection>();
+            // Register the database connection.  Currently Postgres or Sybase
+            builder.Register<IConnection>(x =>
+            {
+                string s = ConfigurationManager.AppSettings["db"];
+
+                if (s == "sise")
+                {
+                    return new ASESQLConnection();
+                }
+                else
+                {
+                    return new NPGSQLConnection();
+                }
+            });
 
             container = builder.Build();
         }

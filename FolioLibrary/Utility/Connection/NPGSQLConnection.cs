@@ -40,7 +40,6 @@ namespace FolioLibrary.Utility.Connection
 
             try
             {
-                //_conn = new AseConnection(_dbConnString);
                 _conn = new NpgsqlConnection(_dbConnString);
 
                 _conn.Open();

@@ -10,7 +10,6 @@ using FolioLibrary.Utility.Connection;
 
 using Dapper;
 
-
 namespace FolioLibrary.Utility
 {
     internal class DBAccess : IDataAccess
@@ -20,9 +19,14 @@ namespace FolioLibrary.Utility
                System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
         private IConnection _connection;
-        public IConnection Connection 
+        internal IConnection Connection
         {
-            set {_connection = value;}
+            set { _connection = value; }
+        }
+
+        internal DBAccess(IConnection connection)
+        {
+            _connection = connection;
         }
 
         /// <summary>
@@ -34,7 +38,7 @@ namespace FolioLibrary.Utility
         /// <returns></returns>
         public T ExecuteSP<T>(String spName, T dto, Object items)
         {
-            if (_connection  == null)
+            if (_connection == null)
             {
                 log.Error("Connection must be set!");
                 return default(T);
@@ -42,7 +46,7 @@ namespace FolioLibrary.Utility
 
             _connection.CreateOpenConnection();
 
-            if (_connection.Connection == null)
+            if (_connection == null)
             {
                 log.Error("Connection is null!!");
                 return default(T);
@@ -67,7 +71,7 @@ namespace FolioLibrary.Utility
             }
             finally
             {
-                if (_connection.Connection != null)
+                if (_connection != null)
                 {
                     if (_connection.Connection.State == ConnectionState.Open)
                         _connection.Connection.Close();

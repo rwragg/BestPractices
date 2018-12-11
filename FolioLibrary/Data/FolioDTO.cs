@@ -46,15 +46,13 @@ namespace FolioLibrary.Data
             //parameters for the stored procedure call
             var items = new { Folio = _folio, Broker = _broker };
 
-            DBAccess dbAccessor = new DBAccess();
-
             using (var scope = Container.BeginLifetimeScope())
             {
-                dbAccessor.Connection = scope.Resolve<IConnection>();
-            }
+                DBAccess dbAccessor = new DBAccess(scope.Resolve<IConnection>());
+                FolioDTO d = dbAccessor.ExecuteSP(SP_READ, this, items);
 
-            FolioDTO d = dbAccessor.ExecuteSP(SP_READ, this, items);
-            return d;
+                return d;
+            }
         }
 
         internal void Update()

@@ -14,7 +14,6 @@ namespace FolioLibrary.Utility.Connection
     internal class ASESQLConnection : IConnection
     {
         private AseConnection _conn;
-
         public DbConnection Connection
         {
             get { return _conn; }
