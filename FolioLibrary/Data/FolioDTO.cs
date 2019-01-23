@@ -20,16 +20,34 @@ namespace FolioLibrary.Data
         private static readonly log4net.ILog log =
             log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
-        private const string SP_READ = "sp_folio_status";
+        private const string SP_READ = "sp_folio_detalle";
 
         private IContainer Container = new Configuration().Container;
 
         //Utilized by NuGet: Dapper
         [DataMember]
-        public String Status { get; set; }
+        public string Folio { get; set; }
 
         [DataMember]
-        public String Phase { get; set; }
+        public string Txn { get; set; }
+
+        [DataMember]
+        public int Days { get; set; }
+
+        [DataMember]
+        public string Producer { get; set; }
+
+        [DataMember]
+        public string LOB { get; set; }
+
+        [DataMember]
+        public string Internal_St { get; set; }
+
+        [DataMember]
+        public string External_St { get; set; }
+
+        [DataMember]
+        public string Real_St { get; set; }
 
         internal void Create()
         {
@@ -41,10 +59,10 @@ namespace FolioLibrary.Data
             throw new NotImplementedException();
         }
 
-        internal FolioDTO Read(Int32 _folio, Int32 _broker)
+        internal FolioDTO Read(Int32 _folio)
         {
             //parameters for the stored procedure call
-            var items = new { Folio = _folio, Broker = _broker };
+            var items = new { Folio = _folio};
 
             using (var scope = Container.BeginLifetimeScope())
             {
@@ -58,6 +76,14 @@ namespace FolioLibrary.Data
         internal void Update()
         {
             throw new NotImplementedException();
+        }
+
+        public override string ToString()
+        {
+            String s = $"Folio: {Folio} Txn: {Txn} Days: {Days} Producer: {Producer} LOB: {LOB} " +
+                $"Internal State: {Internal_St} External State: {External_St} Real State: {Real_St}";
+
+            return s;
         }
     }
 }

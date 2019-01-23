@@ -23,10 +23,28 @@ namespace FolioConsoleUI.FolioService {
         private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string PhaseField;
+        private int DaysField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string StatusField;
+        private string External_StField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string FolioField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Internal_StField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LOBField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ProducerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string Real_StField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TxnField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -39,27 +57,105 @@ namespace FolioConsoleUI.FolioService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Phase {
+        public int Days {
             get {
-                return this.PhaseField;
+                return this.DaysField;
             }
             set {
-                if ((object.ReferenceEquals(this.PhaseField, value) != true)) {
-                    this.PhaseField = value;
-                    this.RaisePropertyChanged("Phase");
+                if ((this.DaysField.Equals(value) != true)) {
+                    this.DaysField = value;
+                    this.RaisePropertyChanged("Days");
                 }
             }
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public string Status {
+        public string External_St {
             get {
-                return this.StatusField;
+                return this.External_StField;
             }
             set {
-                if ((object.ReferenceEquals(this.StatusField, value) != true)) {
-                    this.StatusField = value;
-                    this.RaisePropertyChanged("Status");
+                if ((object.ReferenceEquals(this.External_StField, value) != true)) {
+                    this.External_StField = value;
+                    this.RaisePropertyChanged("External_St");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Folio {
+            get {
+                return this.FolioField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.FolioField, value) != true)) {
+                    this.FolioField = value;
+                    this.RaisePropertyChanged("Folio");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Internal_St {
+            get {
+                return this.Internal_StField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Internal_StField, value) != true)) {
+                    this.Internal_StField = value;
+                    this.RaisePropertyChanged("Internal_St");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string LOB {
+            get {
+                return this.LOBField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LOBField, value) != true)) {
+                    this.LOBField = value;
+                    this.RaisePropertyChanged("LOB");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Producer {
+            get {
+                return this.ProducerField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ProducerField, value) != true)) {
+                    this.ProducerField = value;
+                    this.RaisePropertyChanged("Producer");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Real_St {
+            get {
+                return this.Real_StField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.Real_StField, value) != true)) {
+                    this.Real_StField = value;
+                    this.RaisePropertyChanged("Real_St");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Txn {
+            get {
+                return this.TxnField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TxnField, value) != true)) {
+                    this.TxnField = value;
+                    this.RaisePropertyChanged("Txn");
                 }
             }
         }
@@ -79,10 +175,10 @@ namespace FolioConsoleUI.FolioService {
     public interface IFolioService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFolioService/GetFolioStatus", ReplyAction="http://tempuri.org/IFolioService/GetFolioStatusResponse")]
-        FolioConsoleUI.FolioService.FolioDTO GetFolioStatus(int folio, int broker);
+        FolioConsoleUI.FolioService.FolioDTO GetFolioStatus(int folio);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFolioService/GetFolioStatus", ReplyAction="http://tempuri.org/IFolioService/GetFolioStatusResponse")]
-        System.Threading.Tasks.Task<FolioConsoleUI.FolioService.FolioDTO> GetFolioStatusAsync(int folio, int broker);
+        System.Threading.Tasks.Task<FolioConsoleUI.FolioService.FolioDTO> GetFolioStatusAsync(int folio);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -112,12 +208,12 @@ namespace FolioConsoleUI.FolioService {
                 base(binding, remoteAddress) {
         }
         
-        public FolioConsoleUI.FolioService.FolioDTO GetFolioStatus(int folio, int broker) {
-            return base.Channel.GetFolioStatus(folio, broker);
+        public FolioConsoleUI.FolioService.FolioDTO GetFolioStatus(int folio) {
+            return base.Channel.GetFolioStatus(folio);
         }
         
-        public System.Threading.Tasks.Task<FolioConsoleUI.FolioService.FolioDTO> GetFolioStatusAsync(int folio, int broker) {
-            return base.Channel.GetFolioStatusAsync(folio, broker);
+        public System.Threading.Tasks.Task<FolioConsoleUI.FolioService.FolioDTO> GetFolioStatusAsync(int folio) {
+            return base.Channel.GetFolioStatusAsync(folio);
         }
     }
 }

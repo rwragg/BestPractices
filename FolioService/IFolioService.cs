@@ -14,6 +14,6 @@ namespace FolioService
     public interface IFolioService
     {
         [OperationContract]
-        FolioDTO GetFolioStatus(Int32 folio, int broker);
+        FolioDTO GetFolioStatus(Int32 folio);
     }
 }

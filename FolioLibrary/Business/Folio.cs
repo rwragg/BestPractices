@@ -20,10 +20,10 @@ namespace FolioLibrary.Business
             throw new NotImplementedException();
         }
 
-        public FolioDTO Read(int folio, int broker)
+        public FolioDTO Read(int folio)
         {
             FolioDTO fd = new FolioDTO();
-            fd = fd.Read(folio, broker);
+            fd = fd.Read(folio);
 
             return fd;
         }

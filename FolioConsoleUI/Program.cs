@@ -16,9 +16,13 @@ namespace FolioConsoleUI
         static void Main(string[] args)
         {
             var fs = new FolioService.FolioServiceClient();
-            var fd = fs.GetFolioStatus(5191156, 78511);
+            var fd = fs.GetFolioStatus(5191156);
 
-            Console.WriteLine(fd.Status + " " + fd.Phase);
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"Folio: {fd.Folio} Txn: {fd.Txn} Days: {fd.Days} Producer: {fd.Producer} LOB: {fd.LOB} " +
+                $"Internal State: {fd.Internal_St} External State: {fd.External_St} Real State: {fd.Real_St}");
+
+            Console.WriteLine(sb.ToString());
             Console.ReadLine();
         }
     }

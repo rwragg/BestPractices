@@ -60,7 +60,7 @@ namespace FolioLibrary.Utility
                     dto = _connection.Connection.QueryFirstOrDefault<T>(spName,
                         items,
                         commandType: CommandType.StoredProcedure);
-
+                    
                     return dto;
                 }
             }

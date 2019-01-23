@@ -13,10 +13,10 @@ namespace FolioService
 {
     public class FolioService : IFolioService
     {
-        FolioDTO IFolioService.GetFolioStatus(Int32 folio, int broker)
+        FolioDTO IFolioService.GetFolioStatus(Int32 folio)
         {
             Folio f = new Folio();
-            return f.Read(folio, broker);
+            return f.Read(folio);
         }
     }
 }
